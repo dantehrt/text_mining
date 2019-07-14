@@ -91,8 +91,8 @@ def calculate_similarity_based_on_set(filename_and_preprocessed_document_pairs):
             else:
                 return 0
 
-    def show_heatmap(coefficient, fun):
-        print('-----' + coefficient + '係数-----')
+    def show_heatmap(title, fun):
+        print('-----' + title + '係数-----')
         df = pd.DataFrame(columns=[x[0] for x in filename_and_preprocessed_document_pairs])
         length = len(filename_and_preprocessed_document_pairs)
         for i in range(length):
@@ -105,7 +105,7 @@ def calculate_similarity_based_on_set(filename_and_preprocessed_document_pairs):
         print(df)
 
         seaborn.heatmap(df, cmap='viridis')
-        plt.title(coefficient)
+        plt.title(title)
         plt.ylim(len(filename_and_preprocessed_document_pairs), 0)
         plt.show()
 
